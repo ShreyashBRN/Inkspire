@@ -28,6 +28,7 @@ import { IoCreateOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { FaRegBookmark } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
+import { MdOutlineLibraryBooks } from "react-icons/md";
 
 const Sidebar = () => {
   return (
@@ -38,10 +39,16 @@ const Sidebar = () => {
     <AiOutlineHome size={35} /> Home
   </NavLink>
 
+  {/* Blogs Link */}
+  <NavLink to="/Blogs" className={({ isActive}) => `flex h-11 w-[230px] ml-7 mt-2 gap-5  text-[15px] ${isActive ? 'text-blue-400' : 'hover:text-blue-400'}`}>
+          <MdOutlineLibraryBooks size={35} /> Blogs
+        </NavLink>
+
   {/* Create Link */}
   <NavLink to="/create" className={({ isActive}) => `flex h-11 w-[230px] ml-7 mt-2 gap-5  text-[15px] ${isActive ? 'text-blue-400' : 'hover:text-blue-400'}`}>
           <IoCreateOutline size={35} /> Create
         </NavLink>
+
 
         {/* Profile Link */}
   <NavLink to="/profile" className={({ isActive}) => `flex h-11 w-[230px] ml-7 mt-2 gap-5  text-[15px] ${isActive ? 'text-blue-400' : 'hover:text-blue-400'}`}>

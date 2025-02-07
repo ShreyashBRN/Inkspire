@@ -9,6 +9,8 @@ import { color, motion } from "framer-motion";
 import { useState } from 'react';
 import Header from "../components/Header";
 import Alluser from "../components/Alluser";
+import Section from "../components/Section";
+
 
 
 const Home = () => {
@@ -108,6 +110,7 @@ const Home = () => {
     </div>
     <Header />
     <Alluser />
+    <Section />
 
 
     {/* <div className='flex'>

@@ -5,6 +5,7 @@ import CreateBlog from "./pages/CreateBlog";
 import Profile from "./pages/Profile";
 import Saved from "./pages/Saved";
 import About from "./pages/About";
+import Blogs from "./pages/Blogs";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreateBlog />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/Blogs" element={<Blogs />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
