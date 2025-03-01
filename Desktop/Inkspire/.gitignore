@@ -1,0 +1,13 @@
+# Ignore node_modules in both frontend and backend
+node_modules/
+backend/node_modules/
+blogging-app/node_modules/
+
+# Ignore environment files
+.env
+backend/.env
+blogging-app/.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
