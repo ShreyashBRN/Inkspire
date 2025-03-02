@@ -27,3 +27,12 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
+
+
+
+
+
+
+
+// explain every step what it does with proper meaning i dont know anything at all
