@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const CreateBlog = () => {
   return (
-    <div>CreateBlog</div>
+    <div className='ml-[-34px] mt-[49px] w-[1300px]'>
+      dddddddddddddddddddvvvvvvvvvfeaagevfvfvf
+    </div>
   )
 }
 
