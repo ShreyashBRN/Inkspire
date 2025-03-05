@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const blogRoutes = require("./routes/blogRoutes");
 require("dotenv").config(); // Load environment variables
 
 // Initializing express app
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/blogs", blogRoutes);
 
 // Connecting to MongoDB
 const MONGO_URI = process.env.MONGO_URI;
