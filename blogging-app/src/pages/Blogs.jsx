@@ -1,6 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 const Blogs = () => {
+  const { id } = useParams();
+  const [blog, setBlog] = useState(null);
+
+  useEffect(() => {
+    // fetching blog data from using id
+    const fetchBlog = async () => {
+      try {
+        const response = await fetch("`http://localhost:5173/api/blogs/${id}`")
+        const data = await response.json();
+        setBlog(data);
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+      }
+    };
+    fetchBlog();
+  }, [id]);
+
+  if(!blog) {
+    return <p className="text-center text-2xl mt-10">Loading blog...</p>;
+  }
+
+
+
+
   return (
     <div className='-ml-[34px] mt-[40px] w-[1400px] bg-[#eeeff2] h-screen flex  justify-center items-center font-[Parkinsans]'>
       <div className='box w-[1200px] h-[600px] mr-[103px] bg-white shadow-2xl border border-[#d0d3dc] -mt-[50px] rounded-2xl flex flex-col '>
@@ -16,7 +41,7 @@ const Blogs = () => {
       <p className='  w-[80px] h-[25px] bg-[linear-gradient(0deg,#38bdf8_0%,#3b82f6_100%)] text-center rounded-md text-white text-xs mt-4 ml-14 pt-1'>Education</p>
       <p className='pt-3 text-3xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum, </p>
       </div>
-      <p className='ml-14 mt-10 text-justify mr-14 text-gray-600 leading-7'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, eaque nam suscipit repellendus praesentium accusantium quidem blanditiis distinctio aliquam aliquid! Tempore sed, eligendi cumque nesciunt eveniet aut dolores officiis necessitatibus, suscipit quia nostrum dignissimos distinctio. At, dolorem perferendis tempore error minima velit necessitatibus in veritatis? Nisi aspernatur atque porro quasi molestiae, autem ducimus, ullam quis minus nulla aliquam consequuntur qui vero perferendis repudiandae harum! Aperiam obcaecati repellendus tenetur ut! Aspernatur quibusdam ipsa ex facere, perspiciatis magnam veniam ullam dignissimos. Eos quas perferendis quia molestias repudiandae cumque ex ullam repellendus vel dolor dolorem assumenda delectus ipsa incidunt, iste aspernatur quam nobis rem blanditiis ad inventore neque magni. A itaque sequi, ducimus vitae quis unde numquam vel hic eaque cupiditate amet ad id aliquam nostrum. Ipsa excepturi et eaque delectus tempore, deserunt ullam adipisci vel veniam unde autem possimus illo earum animi beatae! Id aliquid quam soluta cumque nesciunt nam qui expedita voluptas animi, architecto quisquam reprehenderit sunt facere officiis vitae! Rem asperiores quam deleniti quo minima animi architecto mollitia nihil, sapiente cum dolor ipsum reprehenderit ut odit assumenda repellat nisi nobis officia autem nemo dolorum. Iste cum amet voluptatem ut id provident, illum, delectus fugit illo consectetur iure incidunt dolorum nesciunt!</p>
+      <p className='ml-14 mt-10 text-justify mr-14 text-gray-600 leading-7    255'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt expedita enim ullam vel quod odit quos placeat corporis magni animi nesciunt iure, delectus assumenda dolore provident. Libero dolorem sapiente rem, beatae earum nisi corporis veritatis, iusto aut quasi, tempore iure consequatur blanditiis at odit id accusamus fugit labore aliquid? Quo ipsum debitis quasi nostrum, architecto ad veritatis fuga odio ipsam officia laborum ea ullam vel odit magnam, sequi praesentium facere nesciunt voluptas et dolor doloremque repellendus, asperiores cupiditate. Laboriosam molestiae voluptate eos deserunt impedit, numquam minima illo temporibus, dicta nesciunt tempore suscipit ipsa cumque consequatur, repellat totam facilis quae magnam quas et consectetur exercitationem! Nulla nobis cum culpa, sequi dignissimos tempore magni iste quam totam similique illum dolorum? Dolorum nesciunt laudantium voluptas iure, veritatis ab. Molestiae inventore ad ea dolorum temporibus fuga id similique explicabo libero blanditiis laboriosam quas iusto consequuntur odit error possimus suscipit tenetur, fugiat accusantium atque recusandae nisi dolore aliquam. Eveniet nihil, expedita illum iste omnis velit temporibus quos sint, tenetur impedit obcaecati corrupti ad. Quis corrupti placeat deserunt, id a necessitatibus vero iusto obcaecati commodi nostrum molestiae illum! Rem, voluptates commodi quam aliquam debitis itaque praesentium, odio quos earum sapiente, inventore velit eum explicabo perferendis illo quod quas quaerat molestiae! Eveniet tempore fuga, architecto omnis ipsa aperiam, expedita consequuntur debitis, magni velit labore ad amet? Quos, voluptates sint, temporibus dolorem quia esse, illum nihil eos consequatur explicabo ut alias maxime aperiam unde perferendis quae tempore voluptatibus ipsa. Aspernatur ex voluptatibus, est dolore iusto distinctio, ratione numquam tenetur, quaerat et rerum maxime.</p>
 
       </div>
     </div>

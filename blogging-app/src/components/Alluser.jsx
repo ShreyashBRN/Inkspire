@@ -5,6 +5,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules"; 
+import { useNavigate } from "react-router-dom";
 
 const allusercards = [
     {
@@ -54,6 +55,7 @@ const allusercards = [
   ];
 
 const Alluser = () => {
+  const navigate = useNavigate();
   return (
     <div className='mt-16 ml-[95px] font-[Parkinsans] '>
         <p className='text-3xl font-[Parkinsans]'>Latest</p>
@@ -70,7 +72,7 @@ const Alluser = () => {
         >
         {allusercards.map((card, index) => (
           <SwiperSlide key={index}>
-            <div className="allcard h-[400px] w-[290px] bg-white rounded-[25px] shadow-xl ">
+            <div onClick={ () => navigate(`/blogs/${blogs._id}`) } className="allcard h-[400px] w-[290px] bg-white rounded-[25px] shadow-xl ">
 
               {/* Card Image */}
                 <img className='h-[180px] w-[290px] object-cover object-top rounded-[25px] rounded-b-none' src={card.image} alt="" />
