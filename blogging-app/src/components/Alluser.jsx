@@ -90,7 +90,7 @@ const Alluser = () => {
         >
         {allusercards.map((card, index) => (
           <SwiperSlide key={index}>
-            <div onClick={ () => navigate(`/blogs/${blogs._id}`) } className="allcard h-[400px] w-[290px] bg-white rounded-[25px] shadow-xl ">
+            <div onClick={ () => navigate(`/blogs/${blogs._id}`) } className="allcard h-[400px] w-[290px] cursor-pointer bg-white rounded-[25px] shadow-xl ">
 
               {/* Card Image */}
                 <img className='h-[180px] w-[290px] object-cover object-top rounded-[25px] rounded-b-none' src={card.image} alt="" />
