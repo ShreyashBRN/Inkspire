@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBookmark } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -56,6 +56,24 @@ const allusercards = [
 
 const Alluser = () => {
   const navigate = useNavigate();
+  const [blogs, setBlogs] = useState([]); // state to store blogs
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = fetch("http://localhost:5173/api/blogs");
+        const data = await response.json();
+        setBlogs(data); // Store blogs in state
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+
+
   return (
     <div className='mt-16 ml-[95px] font-[Parkinsans] '>
         <p className='text-3xl font-[Parkinsans]'>Latest</p>

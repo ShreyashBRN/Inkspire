@@ -1,8 +1,8 @@
+require("dotenv").config(); // Load environment variables
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
-require("dotenv").config(); // Load environment variables
 
 // Initializing express app
 const app = express();
@@ -12,7 +12,8 @@ app.use("/api/blogs", blogRoutes);
 
 // Connecting to MongoDB
 const MONGO_URI = process.env.MONGO_URI;
-mongoose.connect(MONGO_URI, {
+mongoose
+.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -32,6 +33,7 @@ app.listen(PORT, () => {
 
 
 
+console.log("MongoDB URI:", process.env.MONGO_URI);
 
 
 

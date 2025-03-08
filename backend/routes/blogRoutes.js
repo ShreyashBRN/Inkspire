@@ -33,6 +33,18 @@ router.get(":/id", async(req, res) => {
       }
 })
 
+
+
+
+router.get("/", async(req, res) => {
+    try {
+        const blogs = await Blog.find();
+        res.json(blogs);
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
 // router.get("/:id", (req, res) => {
 //     try {
 //         const blog = await Blog.findById(req.params.id);

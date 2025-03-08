@@ -9,7 +9,7 @@ const Blogs = () => {
     // fetching blog data from using id
     const fetchBlog = async () => {
       try {
-        const response = await fetch("`http://localhost:5173/api/blogs/${id}`")
+        const response = await fetch(`http://localhost:5173/api/blogs/${id}`)
         const data = await response.json();
         setBlog(data);
       } catch (error) {
@@ -20,7 +20,7 @@ const Blogs = () => {
   }, [id]);
 
   if(!blog) {
-    return <p className="text-center text-2xl mt-10">Loading blog...</p>;
+    return <p className="text-center text-2xl mt-[300px] ml-[500px]">Loading blog...</p>;
   }
 
 
