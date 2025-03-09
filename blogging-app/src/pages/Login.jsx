@@ -5,14 +5,37 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login attmpt:", { email, password });
-    console.log("🚀 handleSubmit function is running!"); // <-- Check if this prints
-  alert("Form submitted!"); // <-- See if this appears
+    setError("");
+
+    try {
+        const response = await fetch("http://localhost:5000/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if(!response.ok) {
+            throw new Error(data.message || "Login failed");
+        }
+
+        // ✅ Store token in localStorage
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userId", data.userId);
+
+        alert("Login successfull!");
+        window.location.href = "/"; // It redirects to home page
+    } catch (error) {
+        setError(error.message)
+    }
+    
   };
 
   
