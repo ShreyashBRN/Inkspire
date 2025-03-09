@@ -9,12 +9,13 @@ import Blogs from "./pages/Blogs";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
+import Signup from "./pages/Signup";
 
 
 
 function App() {
   const location = useLocation(); // Get current route
-  const hideLayout = location.pathname === "/login"; // Hide layout for login page
+  const hideLayout = location.pathname === "/login" || location.pathname === "/signup"; // Hide layout for login page
 
 
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/saved" element={<Saved />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
           
         </Routes>
