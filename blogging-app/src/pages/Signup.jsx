@@ -2,6 +2,9 @@ import React from 'react'
 import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
+    const []
+
+
   return (
     <div>
     <form className='w-[400px] h-[603.99px] shadow-2xl border border-[#cfcfde] ml-[550px] mt-7 pt-[32px] pr-[40px] pb-[32px] pl-[40px] rounded-t-2xl'>
@@ -40,7 +43,7 @@ const Signup = () => {
                 <p className='text-[13px] font-bold'>First name</p>
                 <p className='text-[10px] font-bold text-[#9797a4] pt-1'>Optional</p>
             </div>
-            <input type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='First name'></input>
+            <input value={firstName} type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='First name' />
             </div>
 
             <div>
@@ -48,24 +51,24 @@ const Signup = () => {
                 <p className='text-[13px] font-bold'>Last name</p>
                 <p className='text-[10px] font-bold text-[#9797a4] pt-1'>Optional</p>
             </div>
-            <input type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name'></input>
+            <input value={lastName} type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
             </div>
         </div>
 
         {/* Email required */}
         <div className='mt-7 flex flex-col gap-1'>
             <p className='text-[13px] font-bold'>Email address</p>
-            <input type='email' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name'></input>
+            <input value={email}  type='email' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name ' />
         </div>
 
         {/* Password required */}
-        <div className='mt-7 flex flex-col gap-1'>
+        <div  className='mt-7 flex flex-col gap-1'>
             <p className='text-[13px] font-bold'>Password</p>
-            <input type='password' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name'></input>
+            <input value={password}  type='password'  required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
         </div>
 
         {/* continue button */}
-        <button className='continue w-[320px] h-[30px] bg-[#2f6bec] mt-7 text-[13px] text-white font-bold pb-1'>Continue</button>
+        <button type='submit' className='outline-none continue w-[320px] h-[30px] bg-[#2f6bec] mt-7 text-[13px] text-white font-bold pb-1'>Continue</button>
         
         
     </form>

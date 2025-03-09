@@ -1,55 +1,89 @@
 import React, { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    console.log("Login attmpt:", { email, password });
   };
 
-  return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Password
-            </label>
-            <input
-              type="password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-          >
-            Login
-          </button>
+  
+    return (
+        <div>
+        <form onSubmit={handleSubmit} className='w-[400px] h-[520.99px] shadow-2xl border border-[#cfcfde] ml-[550px] mt-14 pt-[32px] pr-[40px] pb-[32px] pl-[40px] rounded-t-2xl'>
+            <div className='flex items-center justify-center gap-1 -mt-3'>
+    
+                {/* Inkspire heading */}
+            <div className="bg-slate-500 w-6 h-6 mt-2 ml-2  rounded-md bg-[linear-gradient(0deg,#38bdf8_0%,#3b82f6_100%)] text-2xl text-center  text-white ">I</div>
+            <p className='text-xl pt-3 font-bold font-[Parkinsans]'>Inkspire</p>
+            </div>
+    
+            {/* Create your account */}
+            <div className='flex flex-col gap-4 text-center mt-7'>
+                <div className='flex flex-col gap-[1px]  '>
+                    <div className='text-[17px] font-bold text-[#212126]'>Sign in to Code Guide</div>
+                    <div className='text-[13px] text-[#867686]'>Welcome! Please fill in the details to get started.</div>
+                </div>
+                <div className='flex  w-[319px] shadow-lg rounded-lg border items-center gap-2 mt-5 h-[32px] hover:bg-[#f4f4fe]'>
+                    <div className='ml-[70px]'>
+                <FcGoogle size={22}  />
+                </div>
+                    <p className='text-[14px] text-[#685d68]  pb-1 '>Continue with Google</p>
+                </div>
+            </div>
+    
+            {/* or */}
+            <div className='flex ml-1 gap-5 mt-6 '>
+                <div className='h-[0.5px] w-[150px] bg-[#d1d1d9] mt-3'></div>
+            <div className='text-[13px] text-[#9797a4]'>or</div>
+            <div className='h-[0.5px] w-[150px] bg-[#d1d1d9]  mt-3'></div>
+            </div>
+    
+            
+    
+            {/* Email required */}
+            <div className='mt-7 flex flex-col gap-1'>
+                <p className='text-[13px] font-bold'>Email address</p>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type='email' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Enter your email address' />
+            </div>
+
+            {/* Password required */}
+        <div className='mt-7 flex flex-col gap-1'>
+            <p className='text-[13px] font-bold'>Password</p>
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
+        </div>
+    
+    
+            {/* continue button */}
+            <button type="submit" className='outline-none continue w-[320px] h-[30px] bg-[#2f6bec] mt-7 text-[13px] text-white font-bold pb-1'>Continue</button>
+            
+            
         </form>
-      </div>
-    </div>
-  );
+        <div className='w-[400px] h-[100px] bg-[#f7f7f7] ml-[550px] rounded-b-2xl border shadow-2xl'>
+            <div className='flex mt-3 gap-1 ml-24'>
+                <p className='text-[13px] text-[#888484]'>Don’t have an account?</p>
+                <a className='text-[13px] font-bold' href="">
+                Sign up</a>
+            </div>
+    
+            <div className='w-full bg-[#dbd8d8] h-[0.5px] mt-4'></div>
+            <p className='text-[12px] font-bold text-[#8b8a8a] ml-[155px] mt-3'>Secured by 
+                <a href="" >JWT</a>
+            </p>
+        </div>
+        <div className='h-[20px]'></div>
+        <div className='h-[20px]'></div>
+        <div className='h-[20px]'></div>
+        <div className='h-[20px]'></div>
+        <div className='h-[20px]'></div>
+        </div>
+         
+      )
 };
 
 export default Login;
