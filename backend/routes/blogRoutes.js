@@ -1,14 +1,15 @@
 const express = require("express");
 const Blog = require("../models/Blog");
+const verifyToken = require("../middleware/authMiddleware");
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
     try{
         const { title, content, image, category, author } = req.body;
         if(!title || !content || !image || !category || !author) {
             return res.status(400).json({ message: "All fields are required" });
         }
-        const newBlog = new Blog({ title, content, image, category, author });
+        const newBlog = new Blog({ title, content, image, category, author: req.user.userId, });
         await newBlog.save();
         res.status(201).json(newBlog);
     } catch (error) {

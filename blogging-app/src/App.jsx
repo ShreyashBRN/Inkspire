@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 
 
@@ -28,10 +29,13 @@ function App() {
       <div className={`p-6 h-screen pt-4 ${!hideLayout ? "ml-60" : ""}`}>
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route element={<ProtectedRoute />}>
           <Route path="/create" element={<CreateBlog />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/blogs/:id" element={<Blogs />} />
           <Route path="/saved" element={<Saved />} />
+          </Route>
+          <Route path="/blogs/:id" element={<Blogs />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
