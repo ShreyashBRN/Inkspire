@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 });
 
 // Getting a single blog by id
-router.get(":/id", async(req, res) => {
+router.get("/:id", async(req, res) => {
     try{
     const blog = await Blog.findById(req.params.id);
     if (!blog) {
