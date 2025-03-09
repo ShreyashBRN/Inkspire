@@ -1,13 +1,26 @@
 import React from 'react'
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
-    const []
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log({ firstName, lastName, email, password });
+        
+    } 
+
+
 
 
   return (
     <div>
-    <form className='w-[400px] h-[603.99px] shadow-2xl border border-[#cfcfde] ml-[550px] mt-7 pt-[32px] pr-[40px] pb-[32px] pl-[40px] rounded-t-2xl'>
+    <form onSubmit={handleSubmit} className='w-[400px] h-[603.99px] shadow-2xl border border-[#cfcfde] ml-[550px] mt-7 pt-[32px] pr-[40px] pb-[32px] pl-[40px] rounded-t-2xl'>
         <div className='flex items-center justify-center gap-1 -mt-3'>
 
             {/* Inkspire heading */}
@@ -43,7 +56,7 @@ const Signup = () => {
                 <p className='text-[13px] font-bold'>First name</p>
                 <p className='text-[10px] font-bold text-[#9797a4] pt-1'>Optional</p>
             </div>
-            <input value={firstName} type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='First name' />
+            <input onChange={(e) => setFirstName(e.target.value)} value={firstName} type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='First name' />
             </div>
 
             <div>
@@ -51,20 +64,20 @@ const Signup = () => {
                 <p className='text-[13px] font-bold'>Last name</p>
                 <p className='text-[10px] font-bold text-[#9797a4] pt-1'>Optional</p>
             </div>
-            <input value={lastName} type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
+            <input onChange={(e) => setLastName(e.target.value)} value={lastName} type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
             </div>
         </div>
 
         {/* Email required */}
         <div className='mt-7 flex flex-col gap-1'>
             <p className='text-[13px] font-bold'>Email address</p>
-            <input value={email}  type='email' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name ' />
+            <input onChange={(e) => setEmail(e.target.value)} value={email}  type='email' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name ' />
         </div>
 
         {/* Password required */}
         <div  className='mt-7 flex flex-col gap-1'>
             <p className='text-[13px] font-bold'>Password</p>
-            <input value={password}  type='password'  required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
+            <input onChange={(e) => setPassword(e.target.value)} value={password}  type='password'  required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name' />
         </div>
 
         {/* continue button */}
@@ -75,7 +88,7 @@ const Signup = () => {
     <div className='w-[400px] h-[100px] bg-[#f7f7f7] ml-[550px] rounded-b-2xl border shadow-2xl'>
         <div className='flex mt-3 gap-1 ml-24'>
             <p className='text-[13px] text-[#888484]'>Already have an account?</p>
-            <a className='text-[13px] font-bold' href="">Sign in</a>
+            <Link to="/login" className='text-[13px] font-bold' href="">Sign in</Link>
         </div>
 
         <div className='w-full bg-[#dbd8d8] h-[0.5px] mt-4'></div>

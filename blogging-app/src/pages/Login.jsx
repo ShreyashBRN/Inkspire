@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login attmpt:", { email, password });
+    console.log("🚀 handleSubmit function is running!"); // <-- Check if this prints
+  alert("Form submitted!"); // <-- See if this appears
   };
 
   
@@ -67,8 +70,8 @@ const Login = () => {
         <div className='w-[400px] h-[100px] bg-[#f7f7f7] ml-[550px] rounded-b-2xl border shadow-2xl'>
             <div className='flex mt-3 gap-1 ml-24'>
                 <p className='text-[13px] text-[#888484]'>Don’t have an account?</p>
-                <a className='text-[13px] font-bold' href="">
-                Sign up</a>
+                <Link to="/signup"  className='text-[13px] font-bold' href="">
+                Sign up</Link>
             </div>
     
             <div className='w-full bg-[#dbd8d8] h-[0.5px] mt-4'></div>
