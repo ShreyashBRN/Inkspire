@@ -18,15 +18,39 @@ const Signup = () => {
                 <div className='text-[17px] font-bold text-[#212126]'>Create your account</div>
                 <div className='text-[13px] text-[#867686]'>Welcome! Please fill in the details to get started.</div>
             </div>
-            <div className='flex  w-[319px] shadow-lg rounded-lg border items-center gap-2 mt-6'>
+            <div className='flex  w-[319px] shadow-lg rounded-lg border items-center gap-2 mt-5 h-[32px] hover:bg-[#f4f4fe]'>
                 <div className='ml-[70px]'>
             <FcGoogle size={22}  />
             </div>
-                <p className='text-[14px] text-[#685d68]  pb-1'>Continue with Google</p>
+                <p className='text-[14px] text-[#685d68]  pb-1 '>Continue with Google</p>
             </div>
         </div>
-        
-        <div>or</div>
+
+        {/* or */}
+        <div className='flex ml-1 gap-5 mt-6 '>
+            <div className='h-[0.5px] w-[150px] bg-[#d1d1d9] mt-3'></div>
+        <div className='text-[13px] text-[#9797a4]'>or</div>
+        <div className='h-[0.5px] w-[150px] bg-[#d1d1d9]  mt-3'></div>
+        </div>
+
+        {/* Name required */}
+        <div className='flex gap-3 mt-5'>
+            <div className='ml-1'>
+            <div className='flex'>
+                <p>First name</p>
+                <p>Optional</p>
+            </div>
+            <div className='w-[152px] h-[30px] border border-[#9797a4] mt-2 rounded-lg'></div>
+            </div>
+
+            <div>
+            <div className='flex'>
+                <p>Last name</p>
+                <p>Optional</p>
+            </div>
+            <div className='w-[152px] h-[30px] border border-[#9797a4] mt-2 rounded-lg'></div>
+            </div>
+        </div>
         
         
     </div>
