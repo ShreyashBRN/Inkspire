@@ -3,8 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
   return (
-    
-    <div className='w-[400px] h-[563.99px] shadow-2xl border border-blue-400 ml-[550px] mt-16 pt-[32px] pr-[40px] pb-[32px] pl-[40px]'>
+    <div>
+    <form className='w-[400px] h-[603.99px] shadow-2xl border border-[#cfcfde] ml-[550px] mt-7 pt-[32px] pr-[40px] pb-[32px] pl-[40px] rounded-t-2xl'>
         <div className='flex items-center justify-center gap-1 -mt-3'>
 
             {/* Inkspire heading */}
@@ -34,25 +34,57 @@ const Signup = () => {
         </div>
 
         {/* Name required */}
-        <div className='flex gap-3 mt-5'>
+        <div className='flex gap-3 mt-7'>
             <div className='ml-1'>
-            <div className='flex'>
-                <p>First name</p>
-                <p>Optional</p>
+            <div className='flex gap-[46px]'>
+                <p className='text-[13px] font-bold'>First name</p>
+                <p className='text-[10px] font-bold text-[#9797a4] pt-1'>Optional</p>
             </div>
-            <div className='w-[152px] h-[30px] border border-[#9797a4] mt-2 rounded-lg'></div>
+            <input type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='First name'></input>
             </div>
 
             <div>
-            <div className='flex'>
-                <p>Last name</p>
-                <p>Optional</p>
+            <div className='flex gap-[46px]'>
+                <p className='text-[13px] font-bold'>Last name</p>
+                <p className='text-[10px] font-bold text-[#9797a4] pt-1'>Optional</p>
             </div>
-            <div className='w-[152px] h-[30px] border border-[#9797a4] mt-2 rounded-lg'></div>
+            <input type='text' required className='w-[152px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name'></input>
             </div>
         </div>
+
+        {/* Email required */}
+        <div className='mt-7 flex flex-col gap-1'>
+            <p className='text-[13px] font-bold'>Email address</p>
+            <input type='email' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name'></input>
+        </div>
+
+        {/* Password required */}
+        <div className='mt-7 flex flex-col gap-1'>
+            <p className='text-[13px] font-bold'>Password</p>
+            <input type='password' required className='w-[320px] h-[30px] border border-[#cfcfde] mt-2 rounded-lg text-[13px] pl-3 pb-1 outline-none' placeholder='Last name'></input>
+        </div>
+
+        {/* continue button */}
+        <button className='continue w-[320px] h-[30px] bg-[#2f6bec] mt-7 text-[13px] text-white font-bold pb-1'>Continue</button>
         
         
+    </form>
+    <div className='w-[400px] h-[100px] bg-[#f7f7f7] ml-[550px] rounded-b-2xl border shadow-2xl'>
+        <div className='flex mt-3 gap-1 ml-24'>
+            <p className='text-[13px] text-[#888484]'>Already have an account?</p>
+            <a className='text-[13px] font-bold' href="">Sign in</a>
+        </div>
+
+        <div className='w-full bg-[#dbd8d8] h-[0.5px] mt-4'></div>
+        <p className='text-[12px] font-bold text-[#8b8a8a] ml-[155px] mt-3'>Secured by 
+            <a href="">JWT</a>
+        </p>
+    </div>
+    <div className='h-[20px]'></div>
+    <div className='h-[20px]'></div>
+    <div className='h-[20px]'></div>
+    <div className='h-[20px]'></div>
+    <div className='h-[20px]'></div>
     </div>
      
   )
