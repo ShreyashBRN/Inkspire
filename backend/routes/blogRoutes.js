@@ -6,7 +6,7 @@ const router = express.Router();
 router.post("/", verifyToken, async (req, res) => {
     try{
         const { title, content, image, category, author } = req.body;
-        if(!title || !content || !image || !category || !author) {
+        if(!title || !content || !category || !author) {
             return res.status(400).json({ message: "All fields are required" });
         }
         const newBlog = new Blog({ title, content, image, category, author: req.user.userId, });
