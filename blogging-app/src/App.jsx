@@ -35,7 +35,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/saved" element={<Saved />} />
           </Route>
-          <Route path="/blogs/:id" element={<Blogs />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
