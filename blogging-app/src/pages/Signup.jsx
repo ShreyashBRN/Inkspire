@@ -2,18 +2,44 @@ import React from 'react'
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log({ firstName, lastName, email, password });
+        const userData = { firstName, lastName, email, password };
+
+        try {
+            const response = await fetch("http://localhost:5000/api/auth/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("✅ Signup Successful:", data);
+                alert("Signup successful! You can now log in.");
+                navigate("/login");
+            } else {
+                console.log("❌ Signup Failed:", data.message);
+            alert(`Signup failed: ${data.message}`);
+            }
+        } catch (error) {
+            console.error("❌ Signup Error:", error);
+        alert("Something went wrong. Please try again.");
+        }
         
-    } 
+    };
 
 
 

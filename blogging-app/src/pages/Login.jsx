@@ -13,6 +13,9 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
+    const loginData = { email, password };
+    console.log("📌 Sending login data:", loginData);
+
     try {
         const response = await fetch("http://localhost:5000/api/auth/login", {
             method: "POST",
@@ -21,10 +24,14 @@ const Login = () => {
         });
 
         const data = await response.json();
+        console.log("📌 Server Response:", data); // Log backend response
 
         if(!response.ok) {
-            throw new Error(data.message || "Login failed");
-        }
+            setError(data.message || "Invalid email or password");
+            setEmail(""); // ✅ Clear email input
+            setPassword(""); // ✅ Clear password input
+            return;
+        } 
 
         // ✅ Store token in localStorage
         localStorage.setItem("token", data.token);

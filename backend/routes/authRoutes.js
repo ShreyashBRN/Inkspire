@@ -1,5 +1,5 @@
 const express = require("express");
-const User = require("../models/User");
+const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -8,6 +8,8 @@ const router = express.Router();
 router.post("/signup", async (req, res) => {
     try {
         console.log("📌 Received data:", req.body);
+        console.log("📌 Signup Request Received:", req.body);
+        
         const { firstName, lastName, email, password } = req.body;
 
         // checks if all fields are provided
@@ -27,7 +29,7 @@ router.post("/signup", async (req, res) => {
         // create and save the user
         const newUser = new User({ firstName, lastName, email, password: hashedPassword });
         await newUser.save();
-        res.status(500).json({ message: "User registered Successfully" });
+        res.status(201).json({ message: "User registered Successfully" });
     } catch (error){
         console.error("Signup Error:", error.message);
         res.status(500).json({ message: "Server error" });
