@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { use } from 'react';
 import { CiMapPin } from "react-icons/ci";
 import { FaBook } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
+
+  // Get user Id from url parameters
+  const { userId } = useParams();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        //Make a GET request to backend api
+        const response = await fetch(`http://localhost:5000/api/users/${userId}`);
+
+        // Convert responde to JSON format
+        const data = await response.json();
+
+        // If response is not OK threw a error
+        if(!response.ok){
+          new new Error(data.message || "Failed to fetch user data");
+        }
+
+        //stored fetched user data in space
+        setUser(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchUserData();
+  }, [userId]);
+  
+
   return (
     <div className='-ml-8 mt-[48px] w-[1300px] h-screen flex gap-10 bg-[#eeeff2] font-[Parkinsans]'>
       <div className='w-[800px] ml-12 h-[500px] bg-white shadow-2xl mt-10 rounded-3xl'>
