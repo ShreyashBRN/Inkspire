@@ -1,5 +1,5 @@
 const express = require("express");
-const User = require("user.js");
+const User = require("../models/user");
 // import {  } from "react-router-dom";
 
 const router = express.Router();
@@ -10,7 +10,7 @@ router.get("/:userId", async (req, res) => {
         const { userId } = req.params; //Extract user ID fr-m URL
 
         //Find user in database by ID
-        const user = await User.findById(userId).select("=password");
+        const user = await User.findById(userId).select("-password");
 
         if(!user) {
             return res.status(404).json({ message: "User not found" });
@@ -18,7 +18,7 @@ router.get("/:userId", async (req, res) => {
         }
 
         //Get the number of blogs created by user
-        const blogsCount = await Blog.countDocuments({ userId });
+        const blogsCount = await Blog.countDocuments({ user: userId });
 
         // Return user data along with blog count
         res.json({

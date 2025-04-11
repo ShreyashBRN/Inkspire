@@ -37,7 +37,6 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.userId);
 
-        alert("Login successfull!");
         window.location.href = "/"; // It redirects to home page
     } catch (error) {
         setError(error.message)
@@ -124,3 +123,6 @@ export default Login;
 
 
 // http://localhost:5173/login
+
+// shreyashbagade@gmail.com
+// Shreyash1906@

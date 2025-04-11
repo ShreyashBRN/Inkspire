@@ -11,8 +11,21 @@ const Profile = () => {
 
   // Get user Id from url parameters
   const { userId } = useParams();
+  console.log("User ID from URL:", userId); // Debugging check
 
   useEffect(() => {
+
+    // ✅ Show loading state until user data is fetched
+  if (!user) {
+    return (
+      setError("User ID is missing"),
+      return,
+    );
+  }
+
+
+
+
     const fetchUserData = async () => {
       try {
         //Make a GET request to backend api
@@ -23,7 +36,7 @@ const Profile = () => {
 
         // If response is not OK threw a error
         if(!response.ok){
-          new new Error(data.message || "Failed to fetch user data");
+          throw new Error(data.message || "Failed to fetch user data");
         }
 
         //stored fetched user data in space
@@ -34,6 +47,16 @@ const Profile = () => {
     };
     fetchUserData();
   }, [userId]);
+
+   // Show error message if any error occurs
+   if (error) {
+    return <p className="text-red-500">{error}</p>;
+  }
+
+  // Show loading message if user data hasn't loaded yet
+  if (!user) {
+    return <p>Loading...</p>;
+  }
   
 
   return (
@@ -44,16 +67,16 @@ const Profile = () => {
 
         <div className="uname flex flex-col relative -top-[56px] left-10 gap-2">
           <div className='flex gap-3 text-[30px]'>
-        <p className="fname">Shreyash</p>
-        <p className="sname">Bagade</p>
+        <p className="fname">{user.firstName}</p>
+        <p className="sname">{user.lastName}</p>
         </div>
         <div className='flex -ml-1'>
           <div className='text-blue-400'>
         <CiMapPin size={25} /></div> <p className='text-[17px] text-[#777b83]'> 03/12/2025 </p>
         </div>
-        <p className='text-[17px] text-[#777b83]'>shreyashbagade@gmail.com</p>
+        <p className='text-[17px] text-[#777b83]'>{user.email}</p>
         <div className='flex gap-2'>
-        <p className='text-[17px] text-[#777b83]'>Blogs Created: </p>
+        <p className='text-[17px] text-[#777b83]'>Blogs Created: {user.blogsCount}</p>
         <p className='text-[17px] text-[#777b83]'>0</p>
         </div>
         </div>

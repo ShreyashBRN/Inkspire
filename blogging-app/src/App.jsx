@@ -32,7 +32,7 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
           <Route path="/create" element={<CreateBlog />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/saved" element={<Saved />} />
           </Route>
           <Route path="/blogs" element={<Blogs />} />
